@@ -3,10 +3,11 @@ const rl = readline.createInterface({input: process.stdin, output: process.stdou
 const prompt = (query) => new Promise((resolve) => rl.question(query, resolve));
 
 rl.on('close', () => process.exit(0));
+
 async function vowelOrConsonant() {
     const letter = await prompt("Please enter a single letter: ")
     console.log('Letter', letter);
-    execute().catch((err) => {console.error(err);}).finally(() => rl.close());
+
     switch (letter) {
         case'a':
         case'e':
@@ -21,4 +22,7 @@ async function vowelOrConsonant() {
     }
 
 }
-vowelOrConsonant();
+
+vowelOrConsonant().catch((err) => {
+    console.error(err);
+}).finally(() => rl.close());

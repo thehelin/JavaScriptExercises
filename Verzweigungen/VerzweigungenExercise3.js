@@ -10,7 +10,6 @@ async function dayOfWeekIfElse() {
 
     console.log('Number of Day', dayNumber);
 
-execute().catch((err) => { console.error(err); }).finally(() => rl.close());
     if (dayNumber === 1) {
         console.log('Monday');
     } else if (dayNumber === 2) {
@@ -31,4 +30,4 @@ execute().catch((err) => { console.error(err); }).finally(() => rl.close());
 
 }
 
-dayOfWeekIfElse();
+dayOfWeekIfElse().catch((err) => {console.error(err);}).finally(() => rl.close());

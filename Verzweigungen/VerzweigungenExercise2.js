@@ -10,10 +10,6 @@ async function checkTemperature() {
 
     console.log('Temperature is', temperature);
 
-
-execute().catch((err) => {console.error(err);}).finally(() => rl.close());
-
-
     if (temperature < 10) {
         console.log('it is cold');
     } else if (temperature >= 10 && temperature < 25) {
@@ -24,4 +20,6 @@ execute().catch((err) => {console.error(err);}).finally(() => rl.close());
     rl.close();
 }
 
-checkTemperature();
+checkTemperature().catch((err) => {
+    console.error(err);
+}).finally(() => rl.close());

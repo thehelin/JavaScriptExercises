@@ -3,11 +3,10 @@ const rl = readline.createInterface({input: process.stdin, output: process.stdou
 const prompt = (query) => new Promise((resolve) => rl.question(query, resolve));
 rl.on('close', () => process.exit(0));
 
-
 async function dayOfWeekSwitchCase() {
     const dayNumber = parseInt(await prompt("Please enter a number (1-7): "), 10);
     console.log('Day number is', dayNumber);
-    execute().catch((err) => {console.error(err);}).finally(() => rl.close());
+
     switch (dayNumber) {
         case 1:
             console.log('Monday')
@@ -46,4 +45,7 @@ async function dayOfWeekSwitchCase() {
     }
 
 }
-dayOfWeekSwitchCase();
+
+dayOfWeekSwitchCase().catch((err) => {
+    console.error(err);
+}).finally(() => rl.close());
